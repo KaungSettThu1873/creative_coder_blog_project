@@ -1,0 +1,10 @@
+body {
+    background-color: white;
+    max-width: 500px;
+    margin: auto;
+}
+
+.text-style {
+   text-decoration: rgb(212, 0, 0) !important;
+}
+
