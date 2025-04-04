@@ -8,3 +8,11 @@ body {
    text-decoration: rgb(212, 0, 0) !important;
 }
 
+.navStyle {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-text {
+    text-decoration: none;
+}
