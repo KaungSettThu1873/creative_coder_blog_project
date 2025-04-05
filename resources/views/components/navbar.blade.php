@@ -1,6 +1,10 @@
-<nav class="navStyle">
-    <ul><a href="#" class="nav-text"></a>Home</ul>
-    <ul><a href="#" class="nav-text"></a>Services</ul>
-    <ul><a href="#" class="nav-text"></a>About</ul>
-    <ul><a href="#" class="nav-text"></a>Contact</ul>
-</nav>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">Creative Coder</a>
+      <div class="d-flex">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#blogs" class="nav-link">Blogs</a>
+        <a href="#subscribe" class="nav-link">Subscribe</a>
+      </div>
+    </div>
+  </nav>
