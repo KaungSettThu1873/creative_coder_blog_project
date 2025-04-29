@@ -7,7 +7,7 @@
     <div class="card-body">
       <h3 class="card-title">{{$blog->title}}</h3>
       <p class="fs-6 text-secondary">
-        {{$blog->author->name}}
+         <a href="/?author={{$blog->author->name}}{{ request('category') ? '&category='.request('category') : '' }}{{ request('search') ? '&search='.request('search') : '' }}" class="text-decoration-none">Author name - {{$blog->author->name}}  </a>
         <span> - {{$blog->created_at->diffForHumans()}}</span>
       </p>
       <div class="tags my-3">

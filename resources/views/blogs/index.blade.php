@@ -19,6 +19,15 @@
 </x-layouts> --}}
 
 <x-layouts>
+  @if(session('success'))
+  <div class="alert alert-success text-center" role="alert">
+    {{session('success')}}
+  </div>
+  {{-- @elseif (session('fail'))
+  <div class="alert-success">
+
+  </div> --}}
+  @endif
     <x-hero />
     <x-blog-section
     :blogs="$blogs"

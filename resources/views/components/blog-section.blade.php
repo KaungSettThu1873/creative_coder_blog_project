@@ -1,31 +1,35 @@
     <!-- blogs section -->
     <section class="container text-center" id="blogs">
         <h1 class="display-5 fw-bold mb-4">Blogs</h1>
-        <div class="">
-            <div class="dropdown mb-4">
-                <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <!-- Category Dropdown Start-->
+        <x-category-dropdown />
+        <!-- Category Dropdown End-->
 
-                    {{isset($currentCategory) ?  $currentCategory->name : "Filter by category" }}
-                </button>
-                <ul class="dropdown-menu">
-                  @foreach ($categories as $category )
-                  <li class="dropdown-item"> <a href="/categories/{{$category->slug}}" class="text-decoration-none">
-                    {{$category->name}}</a>
-                </li>
-                  @endforeach
-                </ul>
-              </div>
-          {{-- <select name="" id="" class="p-1 rounded-pill mx-3">
-            <option value="">Filter by Tag</option>
-          </select> --}}
-        </div>
-        <form action="" class="my-3">
+        <form action="/" class="my-3">
           <div class="input-group mb-3">
+            @if(request('category'))
             <input
+            name="category"
+            type="hidden"
+            value="{{request('category')}}"
+          />
+            @endif
+
+            @if(request('author'))
+            <input
+            name="author"
+            type="hidden"
+            value="{{request('author')}}"
+          />
+            @endif
+
+            <input
+              name="search"
               type="text"
               autocomplete="false"
               class="form-control"
               placeholder="Search Blogs..."
+              value="{{request('search')}}"
             />
             <button
               class="input-group-text bg-primary text-light"
@@ -38,10 +42,16 @@
         </form>
 
         <div class="row">
-          @foreach ($blogs as $blog)
-          <div class="col-md-4 mb-4">
+        @forelse ($blogs as $blog)
+        <div class="col-md-4 mb-4">
             <x-blog-card :blog="$blog"/>
         </div>
-          @endforeach
+        @empty
+        <div class="text-center">
+            <span> Data not found! </span>
+        </div>
+        @endforelse
+        {{$blogs->links()}}
+
         </div>
       </section>
