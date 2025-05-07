@@ -34,5 +34,5 @@
     :categories="$categories"
     :currentCategory="$currentCategory ?? null"
     />
-    <x-subscribe />
+
 </x-layouts>

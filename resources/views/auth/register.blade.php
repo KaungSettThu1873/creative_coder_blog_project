@@ -11,23 +11,20 @@
                         <div class="mb-2">
                             <label class="d-block">Name</label>
                             <input type="text" name="name" class="form-control" value="{{ old('name') }}" />
-                            @error('email')
-                            <small class="text-danger" >{{$message}}</small>
-                            @enderror
+                            <x-error error="name" />
+
                         </div>
                         <div class="mb-2">
                             <label class="d-block">Email</label>
                             <input type="email" name="email" class="form-control" value="{{ old('email') }}" />
-                            @error('email')
-                            <small class="text-danger" >{{$message}}</small>
-                            @enderror
+                            <x-error error="email" />
+
                         </div>
                         <div class="mb-2">
                             <label class="d-block">Password</label>
                             <input type="password" name="password" class="form-control" value="{{ old('password') }}" />
-                            @error('email')
-                            <small class="text-danger" >{{$message}}</small>
-                            @enderror
+                            <x-error error="password" />
+
                         </div>
                         <div class="text-end">
                         <button type="submit" class="btn btn-primary ">Register</button>

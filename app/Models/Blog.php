@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+
+use App\Models\Comment;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -42,6 +44,23 @@ class Blog extends Model
 
     public function author() {
         return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function subscribers() {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function unSubscribe() {
+        $this->subscribers()->detach(auth()->user()->id);
+    }
+
+
+    public function subscribe() {
+        $this->subscribers()->attach(auth()->user()->id);
     }
 
 }
